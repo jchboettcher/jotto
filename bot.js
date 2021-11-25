@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     table.innerHTML = ""
     const win = document.getElementById("win")
     win.innerHTML = ""
-    win.style.paddingTop = "15px"
+    win.style.paddingTop = "12px"
     done = false
     for (let input of inputs) {
       input.value = ""
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (w == compword) {
       const win = document.getElementById("win")
       win.innerHTML = "YOU WIN! Score: "+table.rows.length
-      win.style.paddingTop = "25px"
+      win.style.paddingTop = "20px"
       for (let input of inputs) {
         input.classList.remove("error");
         input.classList.remove("good");
