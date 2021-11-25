@@ -1,0 +1,100 @@
+.section {
+  visibility: hidden;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letter {
+  font-family: monospace;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 45px;
+  caret-color: transparent;
+  border-radius: 10px;
+}
+
+.letter.error {
+  animation: error 0.8s cubic-bezier(.36,.07,.19,.97) both;
+  transform: rotate(0) translate(0, 0);
+}
+
+@keyframes error {
+  from {
+    background-color: rgb(255, 51, 51);
+  }
+  10% {
+    transform: rotate(-4deg) translate(-1px, 0);
+  }
+  20% {
+    transform: rotate(2deg) translate(2px, 0);
+  }
+  30%, 50%, 70% {
+    transform: rotate(-2deg) translate(-2px, 0);
+  }
+  40%, 60% {
+    transform: rotate(1deg) translate(1px, 0);
+  }
+}
+
+.letter.good {
+  animation: good 1s;
+}
+
+@keyframes good {
+  from {
+    background-color: rgb(30, 255, 30);
+  }
+}
+
+.letter:focus {
+  background-color: rgb(238, 233, 177);
+}
+
+.letter.win {
+  background-color: rgb(30, 255, 30);
+}
+
+#history {
+  font-family: monospace;
+  font-size: 35px;
+  padding-top: 10px;
+  border-spacing: 10px;
+}
+
+td:left {
+  text-align: right;
+}
+
+#win {
+  margin: 0;
+  font-family: monospace;
+  font-size: 42px;
+}
+
+.word {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transform: translate(37px);
+}
+
+button {
+  visibility: hidden;
+  font-family: monospace;
+  font-size: 15px;
+  padding: 0;
+  margin-left: 20px;
+  width: 54px;
+  text-align: left;
+  border: none;
+  background: none;
+  color: blue;
+  text-decoration: underline;
+}
+
+button:hover {
+  cursor: pointer;
+}
