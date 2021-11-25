@@ -162,7 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return
       }
       event.preventDefault();
-      force.style.visibility = "hidden"
+      if (!done) {
+        force.style.visibility = "hidden"
+      }
       if (event.key === "Enter") {
         click(false)
       } else if ("qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".split("").includes(c)) {
