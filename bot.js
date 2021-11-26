@@ -3,22 +3,23 @@ const n = 5
 const words = new Set()
 const largewords = new Set()
 
+const hashStr = str => {
+  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (let i = 0, ch; i < str.length; i++) {
+    ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+  return 4294967296 * (2097151 & h2) + (h1>>>0);
+}
+
 let smalldone = false
 fetch('dict/dict.txt')
   .then(response => response.text())
   .then(data => {
     const lst = data.split("\n")
-    const hashStr = str => {
-      let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
-      for (let i = 0, ch; i < str.length; i++) {
-        ch = str.charCodeAt(i);
-        h1 = Math.imul(h1 ^ ch, 2654435761);
-        h2 = Math.imul(h2 ^ ch, 1597334677);
-      }
-      h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
-      h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
-      return 4294967296 * (2097151 & h2) + (h1>>>0);
-    }
     lst.sort((i,j)=>hashStr(i)-hashStr(j))
     for (let word of lst) {
       if (word.length == 5) {
@@ -150,7 +151,9 @@ let compword = ""
 const getRandWord = () => {
   const date = new Date()
   const idx = (Math.floor(date.getTime() / 1000) + date.getDate()**2) % words.size
-  return [...words][idx]
+  compword = [...words][idx]
+  console.log(compword)
+  document.getElementById("code").innerHTML = "word code: "+hashStr(""+idx) % words.size
 }
 
 const interval = setInterval(() => {
@@ -165,8 +168,7 @@ const interval = setInterval(() => {
     const input = document.querySelector(".first");
     input.focus()
     // compword = _.sample([...words])
-    compword = getRandWord()
-    console.log(compword)
+    getRandWord()
   }
 },100)
 
@@ -220,8 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const reset = () => {
     // compword = _.sample([...words])
-    compword = getRandWord()
-    console.log(compword)
+    getRandWord()
     table.innerHTML = ""
     const win = document.getElementById("win")
     win.innerHTML = ""
