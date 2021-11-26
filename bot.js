@@ -7,11 +7,25 @@ let smalldone = false
 fetch('dict/dict.txt')
   .then(response => response.text())
   .then(data => {
-    for (let word of data.split("\n")) {
+    const lst = data.split("\n")
+    const hashStr = str => {
+      let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+      for (let i = 0, ch; i < str.length; i++) {
+        ch = str.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+      return 4294967296 * (2097151 & h2) + (h1>>>0);
+    }
+    lst.sort((i,j)=>hashStr(i)-hashStr(j))
+    for (let word of lst) {
       if (word.length == 5) {
         words.add(word.toUpperCase())
       }
     }
+    // console.log([...words])
     smalldone = true
   });
 
@@ -133,6 +147,12 @@ let loaded = false
 let done = false
 let compword = ""
 
+const getRandWord = () => {
+  const date = new Date()
+  const idx = (Math.floor(date.getTime() / 1000) + date.getDate()**2) % words.size
+  return [...words][idx]
+}
+
 const interval = setInterval(() => {
   // console.log("loaded",loaded)
   if (smalldone && largedone && !loaded) {
@@ -144,7 +164,8 @@ const interval = setInterval(() => {
     section.style.visibility = "visible"
     const input = document.querySelector(".first");
     input.focus()
-    compword = _.sample([...words])
+    // compword = _.sample([...words])
+    compword = getRandWord()
     console.log(compword)
   }
 },100)
@@ -198,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const reset = () => {
-    compword = _.sample([...words])
+    // compword = _.sample([...words])
+    compword = getRandWord()
     console.log(compword)
     table.innerHTML = ""
     const win = document.getElementById("win")
