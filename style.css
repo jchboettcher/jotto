@@ -4,8 +4,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  margin: 7px;
-  color: grey;
+  padding: 6px;
+  margin: 0px;
+  color: white;
+  transition: color 0.2s;
+  cursor: default;
+}
+
+#code:hover {
+  color: rgb(151, 151, 151);
+  cursor: default;
 }
 
 .section {
