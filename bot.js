@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     table.innerHTML = ""
     const win = document.getElementById("win")
     win.innerHTML = ""
-    win.style.paddingTop = "12px"
+    win.style.paddingTop = "0px"
     done = false
     for (let input of inputs) {
       input.value = ""
@@ -254,6 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs[0].focus()
     force.style.visibility = "hidden"
     force.innerHTML = "force?"
+    for (let p of alpha.children) {
+      p.classList.remove("guessed")
+      p.classList.remove("striked")
+      p.classList.remove("circled")
+    }
   }
 
   force.addEventListener("click", () => {
