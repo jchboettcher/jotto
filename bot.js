@@ -310,6 +310,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
     }
+    for (let p of alpha.children) {
+      if (w.includes(p.innerHTML)) {
+        p.classList.add("guessed")
+      }
+    }
     row.insertCell(1).innerHTML = intersection(getSetFromWord(w),getSetFromWord(compword))
     if (w == compword) {
       const win = document.getElementById("win")

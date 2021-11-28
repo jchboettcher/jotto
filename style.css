@@ -161,7 +161,7 @@ td.left {
   bottom: 0;
   right: 0;
   border-bottom: 2px solid;
-  border-color: black;
+  border-color: inherit;
 }
 
 .tableletter.circled.q.alpha:after {
@@ -178,7 +178,7 @@ td.left {
   top: 50%;
   right: -25%;
   border-top: 2px solid;
-  border-color: black;
+  border-color: inherit;
   
   transform:rotate(-50deg);
 }
@@ -187,4 +187,8 @@ td.left {
   left: -15%;
   right: -15%;
   border-top: 3px solid;
+}
+
+.tableletter.alpha.guessed {
+  color: blue;
 }
