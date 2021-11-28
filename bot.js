@@ -176,6 +176,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputs = document.querySelectorAll(".letter")
   const force = document.getElementById("force")
   const table = document.getElementById("history")
+  const alpha = document.getElementById("alphabet")
+
+  alpha.innerHTML = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map(l => '<p class="tableletter alpha">'+l+"</p>").join("")
+  for (let p of alpha.children) {
+    p.addEventListener("click", () => {
+      if (p.classList.contains("striked")) {
+        p.classList.remove("striked")
+        p.classList.add("circled")
+      } else if (p.classList.contains("circled")) {
+        p.classList.remove("striked")
+        p.classList.remove("circled")
+      } else {
+        p.classList.remove("circled")
+        p.classList.add("striked")
+      }
+    })
+  }
 
   for (let i = 0; i < n; i++) {
     const input = inputs[i]
@@ -271,7 +288,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     inputs[0].focus()
     const row = table.insertRow(0)
-    row.insertCell(0).innerHTML = w
+    const cell = row.insertCell(0)
+    cell.innerHTML = [...w].map(l => '<p class="tableletter">'+l+"</p>").join("")
+    cell.classList.add("left")
+    // console.log(cell.children)
+    for (let p of cell.children) {
+      p.addEventListener("click", () => {
+        if (p.classList.contains("striked")) {
+          p.classList.remove("striked")
+          p.classList.add("circled")
+        } else if (p.classList.contains("circled")) {
+          p.classList.remove("striked")
+          p.classList.remove("circled")
+        } else {
+          p.classList.remove("circled")
+          p.classList.add("striked")
+        }
+      })
+    }
     row.insertCell(1).innerHTML = intersection(getSetFromWord(w),getSetFromWord(compword))
     if (w == compword) {
       const win = document.getElementById("win")

@@ -18,7 +18,7 @@
 
 .section {
   visibility: hidden;
-  padding: 40px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,10 +84,6 @@
   border-spacing: 8px;
 }
 
-td:left {
-  text-align: right;
-}
-
 #win {
   margin: 0;
   font-family: monospace;
@@ -117,4 +113,56 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+#alphabet {
+  display: flex;
+  flex-direction: row;
+  font-family: monospace;
+  font-size: 34px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+td.left {
+  display: flex;
+  flex-direction: row;
+}
+
+.tableletter {
+  position: relative;
+  margin: 0;
+}
+
+.tableletter.alpha {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.tableletter:hover {
+  cursor: default;
+  background-color: rgb(238, 233, 177);
+}
+
+.tableletter.circled {
+  text-decoration: underline;
+}
+
+.tableletter.striked:before {
+  position: absolute;
+  content: "";
+  left: -25%;
+  top: 50%;
+  right: -25%;
+  border-top: 2px solid;
+  border-color: black;
+  
+  transform:rotate(-50deg);
+}
+
+.tableletter.striked.alpha:before {
+  left: -15%;
+  right: -15%;
+  border-top: 3px solid;
 }
