@@ -178,7 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const table = document.getElementById("history")
   const alpha = document.getElementById("alphabet")
 
-  alpha.innerHTML = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map(l => '<p class="tableletter alpha">'+l+"</p>").join("")
+  alpha.innerHTML = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map(
+    l => '<p class="tableletter alpha'+(l == 'Q' ? " q" : "")+'">'+l+"</p>"
+  ).join("")
   for (let p of alpha.children) {
     p.addEventListener("click", () => {
       if (p.classList.contains("striked")) {
@@ -289,7 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs[0].focus()
     const row = table.insertRow(0)
     const cell = row.insertCell(0)
-    cell.innerHTML = [...w].map(l => '<p class="tableletter">'+l+"</p>").join("")
+    cell.innerHTML = [...w].map(
+      l => '<p class="tableletter'+(l == 'Q' ? " q" : "")+'">'+l+"</p>"
+    ).join("")
     cell.classList.add("left")
     // console.log(cell.children)
     for (let p of cell.children) {

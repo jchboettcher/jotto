@@ -150,6 +150,27 @@ td.left {
   text-decoration: underline;
 }
 
+.tableletter.circled.q {
+  text-decoration: none;
+}
+
+.tableletter.circled.q:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-color: black;
+}
+
+.tableletter.circled.q.alpha:after {
+  left: 2px;
+  bottom: -1px;
+  right: 2px;
+  border-bottom: 3px solid;
+}
+
 .tableletter.striked:before {
   position: absolute;
   content: "";
