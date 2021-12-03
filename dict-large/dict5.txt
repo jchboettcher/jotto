@@ -87,6 +87,7 @@ acorn
 acred
 acres
 acrid
+acron
 acros
 acted
 actin
@@ -528,6 +529,7 @@ argus
 arhat
 arias
 ariel
+aries
 ariki
 arils
 ariot
@@ -1144,6 +1146,7 @@ blahs
 blain
 blame
 blams
+blanc
 bland
 blank
 blare
@@ -1782,6 +1785,7 @@ carvy
 casas
 casco
 cased
+caser
 cases
 casks
 casky
@@ -1956,6 +1960,7 @@ chive
 chivs
 chivy
 chizz
+choad
 chock
 choco
 chocs
@@ -2160,6 +2165,7 @@ cocks
 cocky
 cocoa
 cocos
+cocum
 codas
 codec
 coded
@@ -4740,6 +4746,7 @@ gungy
 gunks
 gunky
 gunny
+guntz
 guppy
 guqin
 gurdy
@@ -4805,6 +4812,7 @@ hadst
 haems
 haets
 haffs
+hafis
 hafiz
 hafts
 haggs
@@ -7022,6 +7030,7 @@ mochi
 mochs
 mochy
 mocks
+mocky
 modal
 model
 modem
@@ -10793,6 +10802,7 @@ stray
 strep
 strew
 stria
+strid
 strig
 strim
 strip
@@ -10820,6 +10830,7 @@ stupa
 stupe
 sture
 sturt
+stuss
 styed
 styes
 style
@@ -12097,6 +12108,7 @@ vends
 vendu
 veney
 venge
+venim
 venin
 venom
 vents
@@ -12758,6 +12770,7 @@ yelps
 yelts
 yenta
 yente
+yentz
 yerba
 yerds
 yerks
@@ -12965,6 +12978,7 @@ zupan
 zupas
 zuppa
 zurfs
+zuzes
 zuzim
 zygal
 zygon
